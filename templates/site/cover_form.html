@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Cover Letter Generator</h1>
+<form action="/cover" method="post" class="grid gap-3 mb-6">
+  <div>
+    <label class="block text-sm text-gray-700">Role</label>
+    <input name="role" value="{{ role }}" class="w-full border rounded px-3 py-2"/>
+  </div>
+  <div>
+    <label class="block text-sm text-gray-700">Company</label>
+    <input name="company" value="{{ company }}" class="w-full border rounded px-3 py-2"/>
+  </div>
+  <div>
+    <label class="block text-sm text-gray-700">Recruiter First Name</label>
+    <input name="first_name" value="{{ first_name }}" class="w-full border rounded px-3 py-2"/>
+  </div>
+  <div>
+    <label class="block text-sm text-gray-700">Paste Job Description</label>
+    <textarea name="jd" rows="10" class="w-full border rounded px-3 py-2">{{ jd }}</textarea>
+  </div>
+  <button class="px-4 py-2 bg-gray-900 text-white rounded w-fit">Generate</button>
+</form>
+
+{% if result %}
+<h2 class="text-xl font-semibold mb-2">Result</h2>
+<textarea rows="16" class="w-full border rounded px-3 py-2 font-mono">{{ result }}</textarea>
+<p class="text-sm text-gray-500 mt-2">Copy into an email or save as a file.</p>
+{% endif %}
+{% endblock %}

@@ -73,3 +73,24 @@ python cold_email.py
 
 ## Disclaimer
 This is a developer tool. You are responsible for complying with the Terms of Service of sites you interact with.
+
+
+---
+
+## Web Dashboard (FastAPI)
+
+A lightweight UI to monitor jobs, mark statuses, view applications, and generate tailored cover letters from pasted JDs.
+
+### Run
+```bash
+uvicorn app:app --reload
+```
+Open http://127.0.0.1:8000
+
+### Pages
+- **/**: Overview + quick status edits
+- **/jobs**: Full job list (filter by status via query param)
+- **/applications**: Application records
+- **/cover**: Paste JD → generates a customized cover letter using `templates/cover.md`. The "hook" section is auto-derived from JD keywords.
+
+> Tip: Keep Playwright apply flow running in another terminal while you review from the dashboard.
